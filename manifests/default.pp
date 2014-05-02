@@ -23,4 +23,7 @@ package { 'grunt-cli':
 package { 'node-gyp':
   ensure   => '0.10.10',
   provider => 'npm'
+} ->
+class { 'timezone':
+  timezone => 'Asia/Seoul'
 }
