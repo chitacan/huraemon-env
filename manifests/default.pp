@@ -7,11 +7,20 @@ exec { 'update':
 
 Exec['update'] ->
 apt::ppa { 'ppa:chris-lea/node.js': } ->
+class { 'nodejs': } ->
 package {
   [
     'make',
-    'nodejs',
+    'g++',
     'git-core'
   ]:
     ensure => 'installed';
+} ->
+package { 'grunt-cli':
+  ensure   => '0.1.9',
+  provider => 'npm'
+} ->
+package { 'node-gyp':
+  ensure   => '0.10.10',
+  provider => 'npm'
 }
