@@ -24,6 +24,10 @@ package { 'node-gyp':
   ensure   => '0.10.10',
   provider => 'npm'
 } ->
+package { 'bower':
+  ensure   => present,
+  provider => 'npm'
+} ->
 class { 'timezone':
   timezone => 'Asia/Seoul'
 }
