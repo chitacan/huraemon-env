@@ -32,7 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.module_path    = "modules"
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "default.pp"
-    puppet.options        = ['--verbose', '--debug']
   end
 
 end
