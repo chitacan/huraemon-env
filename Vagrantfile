@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory",          "1024" ]
-    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "80"   ]
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"   ]
   end
 
   config.vm.provision "puppet" do |puppet|
