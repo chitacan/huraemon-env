@@ -30,4 +30,17 @@ package { 'bower':
 } ->
 class { 'timezone':
   timezone => 'Asia/Seoul'
+} ->
+file { '/home/vagrant/.startup.sh':
+  ensure => 'present',
+  source => '/vagrant/files/startup.sh'
+} ->
+cron { 'huraemon':
+  name        => 'huraemon',
+  ensure      => 'present',
+  command     => '/home/vagrant/.startup.sh',
+  environment => 'PATH=/bin:/usr/bin/:/usr/sbin',
+  special     => 'reboot',
+  target      => 'vagrant',
+  user        => 'vagrant'
 }
